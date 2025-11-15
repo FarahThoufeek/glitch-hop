@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #0b0c18;
+  font-family: 'Press Start 2P', monospace;
+  color: #aaf0ff;
+  text-align: center;
+}
+
+
+.background {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0b0c18;
+}
+
+.layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated; 
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Clouds --- */
+.clouds {
+  animation: drift 12s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% { transform: translate(-50%, -50%) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateX(25px); }
+  100% { transform: translate(-50%, -50%) translateX(0px); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+.stars { animation: flicker 2.5s infinite alternate ease-in-out; }
+
+@keyframes flicker2 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.1; }
+}
+.starry { animation: flicker2 3s infinite alternate ease-in-out; }
+
+.menu {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title {
+  font-size: 60px; 
+  letter-spacing: 4px;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #0088ff,
+    0 0 80px #0088ff;
+  color: #aaf0ff;
+  animation: titleGlitch 1.2s infinite alternate;
+  margin-bottom: 20px; 
+}
+
+@keyframes titleGlitch {
+  0%, 100% {
+    text-shadow:
+      0 0 8px #00ffff,
+      0 0 20px #0088ff,
+      0 0 40px #0088ff;
+  }
+  50% {
+    text-shadow:
+      -2px 2px 0 #ff00ff,
+      2px -2px 0 #00ffff,
+      0 0 10px #00ffff;
+  }
+}
+
+button {
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffff;
+  border: 3px solid #00ffff;
+  padding: 18px 45px;
+  font-size: 22px;
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #00ffff;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #0088ff;
+}
+/* --- HOW TO PLAY BUTTON --- */
+.rules-btn {
+  position: absolute;
+  bottom: -50px;     
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 12px 26px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 13px;
+
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  background: transparent;
+
+  cursor: pointer;
+  text-shadow: 0 0 8px #00ffff;
+  transition: 0.2s;
+}
+
+.rules-btn:hover {
+  box-shadow: 0 0 12px #00ffff;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* --- POPUP BACKDROP --- */
+.rules-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* --- POPUP CONTENT BOX --- */
+.rules-content {
+  background: rgba(20, 20, 30, 0.85);
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 25px #ff00ff;
+  padding: 30px;
+  width: 420px;
+  max-width: 90%;
+  text-align: center;
+  color: white;
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+.rules-content h2 {
+  color: #ff00ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff00ff;
+}
+
+.rules-content p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+
+.neon { color: #00ffff; }
+.pink { color: #ff00ff; }
+.yellow { color: #ffff00; }
+.cyan { color: #00ffff; }
+
+/* Close Button */
+.close-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 12px;
+  color: #ff00ff;
+  border: 2px solid #ff00ff;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  text-shadow: 0 0 6px #ff00ff;
+}
+
+.close-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ff00ff;
+}

@@ -1,0 +1,158 @@
+/* =================================
+   GLOBAL STYLING
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #020202;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Canvas fills viewport */
+#gameCanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+    border: 2px solid #0ff;
+}
+
+/* =================================
+   GLITCH OVERLAY (STATIC LINES)
+================================= */
+#glitch-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 998;
+    mix-blend-mode: screen;
+    transition: opacity 0.08s ease-out, transform 0.05s linear, filter 0.05s linear;
+}
+
+/* =================================
+   SCRAMBLE BLOCKS & TEAR SLICES
+================================= */
+.scramble-block {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2000;
+    will-change: transform, opacity;
+}
+
+.glitch-tear {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1999;
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+
+/* =================================
+   GAME OVER SCREEN
+================================= */
+#gameOverScreen {
+    position: fixed;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20,0,40,0.9);
+    color: #0ff;
+    text-align: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+#gameOverScreen h1 {
+    font-size: 60px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 40px #f0f, 0 0 80px #f0f;
+    animation: neonPulse 2s infinite;
+}
+
+#finalScore {
+    font-size: 32px;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+#restartBtn {
+    background: transparent;
+    border: 3px solid #0ff;
+    color: #0ff;
+    padding: 15px 20px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-shadow: 0 0 8px #0ff, 0 0 12px #0ff;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+    transition: 0.2s ease-out;
+}
+
+#restartBtn:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+}
+
+/* =================================
+   SCORE DISPLAY
+================================= */
+canvas + div, 
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 26px;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* =================================
+   NEON & ANIMATIONS
+================================= */
+@keyframes neonPulse {
+    0%,100% { text-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 40px #f0f; }
+    50% { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff; }
+}
+
+@keyframes glitchShake {
+    0% { transform: translate(3px, -3px); }
+    25% { transform: translate(-2px, 3px); }
+    50% { transform: translate(4px, -4px); }
+    75% { transform: translate(-3px, 1px); }
+    100% { transform: translate(2px, -2px); }
+}
+
+/* Flash hit effect */
+body.flash {
+    animation: flashHit 0.4s ease-out;
+}
+
+@keyframes flashHit {
+    0% { background-color: rgba(255,0,0,0.45); }
+    100% { background-color: transparent; }
+}
+
+/* High score neon glow */
+.newHigh {
+    display: block;
+    margin-top: 8px;
+    font-size: 22px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 25px #ff0099;
+}
+
+/* General neon text */
+.neon-text {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}

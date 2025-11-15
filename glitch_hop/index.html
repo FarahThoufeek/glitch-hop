@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitch Hop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background">
+    <!-- Background Layers -->
+    <img src="export/starry.png" class="layer starry" id="starry">
+    <img src="export/stars.png" class="layer stars" id="stars">
+    <img src="export/clouds.png" class="layer clouds" id="clouds">
+    
+    <!-- Title and Button -->
+    <div class="menu">
+      <h1 class="title">GLITCH HOP</h1>
+      <button onclick="window.location.href='game/game.html'">Start Game</button>
+      <!-- HOW TO PLAY BUTTON -->
+<button class="rules-btn" onclick="openRules()">How to Play</button>
+
+<!-- RULES POPUP -->
+<div id="rulesPopup" class="rules-popup">
+  <div class="rules-content">
+    <h2>HOW TO PLAY</h2>
+
+    <p>🡆 Control the <span class="neon">rocket</span> using <b>Left</b> and <b>Right Arrow Keys</b>.</p>
+
+    <p>🡆 <span class="pink">Dodge</span> falling neon blocks.  
+       Colliding with one will <b>end the game</b>.</p>
+
+    <p>🡆 Collect <span class="yellow">stars (the yellow circles)</span> to earn <b>+5 points</b> each.</p>
+
+    <p>🡆 As time passes, obstacles fall <b>faster</b>.</p>
+
+    <p>🡆 Expect <span class="cyan">heavy glitch effects</span>,  
+       screen distortion, shake, and visual corruption.  
+       This is intentional — stay focused.</p>
+
+    <button class="close-btn" onclick="closeRules()">Close</button>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
